@@ -1,0 +1,164 @@
+sources:
+  - name: operational_data
+    database: raw
+    tables:
+      - name: Almacen
+        columns:
+          - name: id_almacen
+            data_type: int
+            data_tests:
+              - not_null         
+          - name: nombre_almacen
+            data_type: varchar(8000)
+          - name: latitud
+            data_type: decimal(10,6)
+          - name: longitud
+            data_type: decimal(10,6)
+
+      - name: Articulo
+        columns:
+          - name: id_articulo
+            data_type: int
+          - name: ref_articulo
+            data_type: varchar(8000)
+          - name: descripcion
+            data_type: varchar(8000)
+          - name: peso
+            data_type: decimal(10,3)
+          - name: volumen
+            data_type: decimal(10,4)
+          - name: id_mercado
+            data_type: int
+
+      - name: Contenedor
+        columns:
+          - name: id_contenedor
+            data_type: int
+          - name: id_ubicacion
+            data_type: int
+          - name: id_envio
+            data_type: int
+          - name: id_recepcion
+            data_type: int
+          - name: ref_contenedor
+            data_type: varchar(8000)
+
+      - name: Contenido
+        columns:
+          - name: id_contenedor
+            data_type: int
+          - name: id_articulo
+            data_type: int
+          - name: num_unidades
+            data_type: int
+          - name: precio_unidad
+            data_type: decimal(10,2)
+
+      - name: envio
+        columns:
+          - name: id_envio
+            data_type: int
+          - name: id_transportista
+            data_type: int
+          - name: fecha_prevista
+            data_type: date
+          - name: fecha_envio
+            data_type: date
+          - name: id_estado_envio
+            data_type: int
+          - name: id_tienda
+            data_type: int
+          - name: tipo_preparacion
+            data_type: varchar(8000)
+
+      - name: estadoenvio
+        columns:
+          - name: id_estado_envio
+            data_type: int
+          - name: descripcion
+            data_type: varchar(8000)
+
+      - name: estadorecepcion
+        columns:
+          - name: id_estado_recepcion
+            data_type: int
+          - name: descripcion
+            data_type: varchar(8000)
+
+      - name: mercado
+        columns:
+          - name: id_mercado
+            data_type: int
+          - name: descripcion
+            data_type: varchar(8000)
+
+      - name: preciariotienda
+        columns:
+          - name: id_tienda
+            data_type: int
+          - name: id_articulo
+            data_type: int
+          - name: precio_venta
+            data_type: decimal(10,2)
+          - name: fecha_inicio
+            data_type: date
+          - name: fecha_fin
+            data_type: date
+
+      - name: proveedor
+        columns:
+          - name: id_proveedor
+            data_type: int
+          - name: descripcion
+            data_type: varchar(8000)
+
+      - name: recepcion
+        columns:
+          - name: id_recepcion
+            data_type: int
+          - name: fecha_prevista
+            data_type: date
+          - name: fecha_recepcion
+            data_type: date
+          - name: id_estado_recepcion
+            data_type: int
+          - name: id_proveedor
+            data_type: int
+          - name: id_almacen
+            data_type: int
+
+      - name: tienda
+        columns:
+          - name: id_tienda
+            data_type: int
+          - name: descripcion
+            data_type: varchar(8000)
+          - name: latitud
+            data_type: decimal(10,6)
+          - name: longitud
+            data_type: decimal(10,6)
+
+      - name: tipoubicacion
+        columns:
+          - name: id_tipo_ubicacion
+            data_type: int
+          - name: tipo_ubicacion
+            data_type: varchar(8000)
+
+      - name: transportista
+        columns:
+          - name: id_transportista
+            data_type: int
+          - name: descripcion
+            data_type: varchar(8000)
+
+      - name: ubicacion
+        columns:
+          - name: id_ubicacion
+            data_type: int
+          - name: ref_ubicacion
+            data_type: varchar(8000)
+          - name: id_almacen
+            data_type: int
+          - name: id_tipo_ubicacion
+            data_type: int
