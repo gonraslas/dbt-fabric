@@ -54,7 +54,7 @@ sources:
           - name: precio_unidad
             data_type: decimal(10,2)
 
-      - name: envio
+      - name: Envio
         columns:
           - name: id_envio
             data_type: int
@@ -71,28 +71,28 @@ sources:
           - name: tipo_preparacion
             data_type: varchar(8000)
 
-      - name: estadoenvio
+      - name: EstadoEnvio
         columns:
           - name: id_estado_envio
             data_type: int
           - name: descripcion
             data_type: varchar(8000)
 
-      - name: estadorecepcion
+      - name: EstadoRecepcion
         columns:
           - name: id_estado_recepcion
             data_type: int
           - name: descripcion
             data_type: varchar(8000)
 
-      - name: mercado
+      - name: Mercado
         columns:
           - name: id_mercado
             data_type: int
           - name: descripcion
             data_type: varchar(8000)
 
-      - name: preciariotienda
+      - name: PreciarioTienda
         columns:
           - name: id_tienda
             data_type: int
@@ -105,14 +105,14 @@ sources:
           - name: fecha_fin
             data_type: date
 
-      - name: proveedor
+      - name: Proveedor
         columns:
           - name: id_proveedor
             data_type: int
           - name: descripcion
             data_type: varchar(8000)
 
-      - name: recepcion
+      - name: Recepcion
         columns:
           - name: id_recepcion
             data_type: int
@@ -127,7 +127,7 @@ sources:
           - name: id_almacen
             data_type: int
 
-      - name: tienda
+      - name: Tienda
         columns:
           - name: id_tienda
             data_type: int
@@ -138,21 +138,21 @@ sources:
           - name: longitud
             data_type: decimal(10,6)
 
-      - name: tipoubicacion
+      - name: TipoUbicacion
         columns:
           - name: id_tipo_ubicacion
             data_type: int
           - name: tipo_ubicacion
             data_type: varchar(8000)
 
-      - name: transportista
+      - name: Transportista
         columns:
           - name: id_transportista
             data_type: int
           - name: descripcion
             data_type: varchar(8000)
 
-      - name: ubicacion
+      - name: Ubicacion
         columns:
           - name: id_ubicacion
             data_type: int
