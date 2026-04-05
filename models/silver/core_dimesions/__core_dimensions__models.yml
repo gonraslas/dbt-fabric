@@ -1,0 +1,65 @@
+version: 2
+
+models:
+
+  - name: slv_almacen
+    description: "Modelo de almacenes con información geográfica"
+    columns:
+      - name: id_almacen
+        description: "Identificador único del almacén (PK)"
+
+      - name: nombre_almacen
+        description: "Nombre del almacén en mayúsculas"
+
+
+      - name: latitud
+        description: "Coordenada latitud en grados"
+
+
+      - name: longitud
+        description: "Coordenada longitud en grados"
+
+  - name: slv_articulo
+    description: "Catálogo de artículos"
+    columns:
+      - name: id_articulo
+        description: "Identificador único del artículo (PK)"
+
+      - name: ref_articulo
+        description: "Identificador alfanumérico del artículo"
+
+      - name: descripcion
+        description: "Descripción del artículo"
+
+      - name: peso
+        description: "Peso por unidad"
+
+      - name: volumen
+        description: "Volumen por unidad"
+
+      - name: id_mercado
+        description: "Mercado asociado (FK)"
+
+  - name: slv_mercado
+    description: "Mercados de los artículos"
+    columns:
+      - name: id_mercado
+        description: "Identificador único del mercado (PK)"
+
+      - name: descripcion
+        description: "Descripción del mercado"
+
+  - name: slv_tienda
+    description: "Tiendas"
+    columns:
+      - name: id_tienda
+        description: "Identificador único de la tienda (PK)"
+
+      - name: descripcion
+        description: "Nombre de la tienda"
+
+      - name: latitud
+        description: "Latitud de la tienda"
+
+      - name: longitud
+        description: "Longitud de la tienda"

@@ -1,0 +1,281 @@
+version: 2
+
+models:
+
+  - name: brz_almacen
+    description: "Modelo de almacenes con información geográfica"
+    columns:
+      - name: id_almacen
+        description: "Identificador único del almacén (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: nombre_almacen
+        description: "Nombre del almacén en mayúsculas"
+        tests:
+          - not_null
+
+      - name: latitud
+        description: "Coordenada latitud en grados"
+        tests:
+          - not_null
+
+      - name: longitud
+        description: "Coordenada longitud en grados"
+        tests:
+          - not_null
+
+  - name: brz_ubicacion
+    description: "Ubicaciones dentro de los almacenes"
+    columns:
+      - name: id_ubicacion
+        description: "Identificador único de la localización (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: ref_ubicacion
+        description: "Identificador alfanumérico (10 caracteres) de la ubicación"
+        tests:
+          - not_null
+
+      - name: id_almacen
+        description: "Identificador del almacén donde se encuentra (FK)"
+        tests:
+          - not_null
+
+      - name: id_tipo_ubicacion
+        description: "Identificador del tipo de ubicación (FK)"
+        tests:
+          - not_null
+
+  - name: brz_tipo_ubicacion
+    description: "Tipos de ubicación dentro del almacén"
+    columns:
+      - name: id_tipo_ubicacion
+        description: "Identificador único del tipo de ubicación (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: tipo_ubicacion
+        description: "Descripción del tipo de ubicación"
+        tests:
+          - not_null
+
+  - name: brz_contenedor
+    description: "Contenedores logísticos"
+    columns:
+      - name: id_contenedor
+        description: "Identificador único del contenedor (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: id_ubicacion
+        description: "Ubicación del contenedor (FK)"
+
+      - name: id_envio
+        description: "Envío asociado (FK)"
+
+      - name: id_recepcion
+        description: "Recepción asociada (FK)"
+
+      - name: ref_contenedor
+        description: "Identificador alfanumérico del contenedor"
+        tests:
+          - not_null
+
+  - name: brz_contenido
+    description: "Contenido de los contenedores"
+    columns:
+      - name: id_contenedor
+        description: "Contenedor donde se encuentra el contenido (FK)"
+        tests:
+          - not_null
+
+      - name: id_articulo
+        description: "Artículo contenido (FK)"
+        tests:
+          - not_null
+
+      - name: num_unidades
+        description: "Cantidad de artículos"
+        tests:
+          - not_null
+
+      - name: precio_unidad
+        description: "Precio de compra por unidad"
+        tests:
+          - not_null
+
+  - name: brz_articulo
+    description: "Catálogo de artículos"
+    columns:
+      - name: id_articulo
+        description: "Identificador único del artículo (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: ref_articulo
+        description: "Identificador alfanumérico del artículo"
+        tests:
+          - not_null
+
+      - name: descripcion
+        description: "Descripción del artículo"
+
+      - name: peso
+        description: "Peso por unidad"
+
+      - name: volumen
+        description: "Volumen por unidad"
+
+      - name: id_mercado
+        description: "Mercado asociado (FK)"
+
+  - name: brz_mercado
+    description: "Mercados de los artículos"
+    columns:
+      - name: id_mercado
+        description: "Identificador único del mercado (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: descripcion
+        description: "Descripción del mercado"
+
+  - name: brz_tienda
+    description: "Tiendas"
+    columns:
+      - name: id_tienda
+        description: "Identificador único de la tienda (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: descripcion
+        description: "Nombre de la tienda"
+
+      - name: latitud
+        description: "Latitud de la tienda"
+
+      - name: longitud
+        description: "Longitud de la tienda"
+
+  - name: brz_recepcion
+    description: "Recepciones de mercancía"
+    columns:
+      - name: id_recepcion
+        description: "Identificador único de la recepción (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: fecha_prevista
+        description: "Fecha prevista de recepción"
+
+      - name: fecha_recepcion
+        description: "Fecha real de recepción"
+
+      - name: id_estado_recepcion
+        description: "Estado de la recepción (FK)"
+
+      - name: id_proveedor
+        description: "Proveedor (FK)"
+
+      - name: id_almacen
+        description: "Almacén receptor (FK)"
+
+  - name: brz_estado_recepcion
+    description: "Estados de recepción"
+    columns:
+      - name: id_estado_recepcion
+        description: "Identificador único (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: descripcion
+        description: "Descripción del estado"
+
+  - name: brz_envio
+    description: "Envíos a tiendas"
+    columns:
+      - name: id_envio
+        description: "Identificador único del envío (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: id_transportista
+        description: "Transportista (FK)"
+
+      - name: fecha_prevista
+        description: "Fecha prevista de envío"
+
+      - name: fecha_envio
+        description: "Fecha real de envío"
+
+      - name: id_estado_envio
+        description: "Estado del envío (FK)"
+
+      - name: id_tienda
+        description: "Tienda destino (FK)"
+
+  - name: brz_estado_envio
+    description: "Estados de envío"
+    columns:
+      - name: id_estado_envio
+        description: "Identificador único (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: descripcion
+        description: "Descripción del estado"
+
+  - name: brz_transportista
+    description: "Transportistas"
+    columns:
+      - name: id_transportista
+        description: "Identificador único del transportista (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: descripcion
+        description: "Descripción del transportista"
+
+  - name: brz_proveedor
+    description: "Proveedores"
+    columns:
+      - name: id_proveedor
+        description: "Identificador único del proveedor (PK)"
+        tests:
+          - not_null
+          - unique
+
+      - name: descripcion
+        description: "Descripción del proveedor"
+
+  - name: brz_precio_tienda
+    description: "Precios de venta por tienda y artículo"
+    columns:
+      - name: id_tienda
+        description: "Tienda (FK)"
+
+      - name: id_articulo
+        description: "Artículo (FK)"
+
+      - name: precio_venta
+        description: "Precio de venta"
+
+      - name: fecha_inicio
+        description: "Fecha inicio vigencia"
+
+      - name: fecha_fin
+        description: "Fecha fin vigencia (null = 31/12/9999)"

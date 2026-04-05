@@ -38,9 +38,28 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   my_new_project:
     # Applies to all files under models/example/
-    staging:
+    bronze:
       +materialized: view
+      +tags: bronze
+      operational_data:
+        +tags: operational_data
+      other_operational:
+        +tags: other_operational
     silver:
       +materialized: table
+      +tags: silver
+      core_dimensions:
+        +tags: core
+      logistic:
+        +tags: logistic
+      sales:
+        +tags: sales
     gold:
       +materialized: table
+      +tags: gold
+      logistic_dimensional:
+        +tags: logistic
+      sales_dimensional:
+        +tags: sales
+      core_dimensions:
+        +tags: core

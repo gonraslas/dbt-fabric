@@ -1,0 +1,21 @@
+version: 2
+
+models:
+
+  - name: slv_precio_tienda
+    description: "Precios de venta por tienda y artículo"
+    columns:
+      - name: id_tienda
+        description: "Tienda (FK)"
+
+      - name: id_articulo
+        description: "Artículo (FK)"
+
+      - name: precio_venta
+        description: "Precio de venta"
+
+      - name: fecha_inicio
+        description: "Fecha inicio vigencia"
+
+      - name: fecha_fin
+        description: "Fecha fin vigencia (null = 31/12/9999)"
