@@ -35,6 +35,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
+dispatch:
+  - macro_namespace: dbt
+    search_order: ['my_new_project', 'dbt_fabric', 'dbt']
+
 models:
   my_new_project:
     # Applies to all files under models/example/
@@ -63,3 +67,13 @@ models:
         +tags: sales
       core_dimensions:
         +tags: core
+    platinum:
+      +materialized: table
+      +tags: platinium
+      +database: platinium
+      sales_area:
+        +tags: sales
+      logistic_area:
+        +tags: logistic
+  elementary:
+    +schema: "elementary"

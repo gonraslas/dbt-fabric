@@ -1,0 +1,96 @@
+version: 2
+
+models:
+
+  - name: dim_ubicacion_almacen
+    description: "Dimensión de ubicaciones dentro de almacenes con información geográfica"
+    columns:
+      - name: id_ubicacion
+        description: "Identificador único de la ubicación (PK)"
+
+      - name: ref_ubicacion
+        description: "Identificador alfanumérico (10 caracteres) de la ubicación"
+
+      - name: nombre_almacen
+        description: "Nombre del almacén donde se encuentra la ubicación"
+
+      - name: longitud
+        description: "Coordenada longitud del almacén en grados"
+
+      - name: latitud
+        description: "Coordenada latitud del almacén en grados"
+
+      - name: tipo_ubicacion
+        description: "Descripción del tipo de ubicación"
+
+  - name: fact_contenidos
+    description: "Hechos de contenido de contenedores logísticos"
+    columns:
+      - name: id_contenedor
+        description: "Identificador único del contenedor (FK)"
+
+      - name: id_ubicacion
+        description: "Ubicación del contenedor (FK)"
+
+      - name: id_envio
+        description: "Envío asociado (FK)"
+
+      - name: id_recepcion
+        description: "Recepción asociada (FK)"
+
+      - name: ref_contenedor
+        description: "Identificador alfanumérico del contenedor"
+
+      - name: id_articulo
+        description: "Artículo contenido (FK)"
+
+      - name: num_unidades
+        description: "Cantidad de artículos"
+
+      - name: precio_unidad
+        description: "Precio de compra por unidad"
+
+  - name: fact_envios
+    description: "Hechos de envíos a tiendas"
+    columns:
+      - name: id_envio
+        description: "Identificador único del envío (PK)"
+
+      - name: id_transportista
+        description: "Transportista asignado (FK)"
+
+      - name: fecha_prevista
+        description: "Fecha prevista de envío"
+
+      - name: fecha_envio
+        description: "Fecha real de envío"
+
+      - name: id_tienda
+        description: "Tienda destino (FK)"
+
+      - name: tipo_preparacion
+        description: "Tipo de preparación del envío"
+
+      - name: estado_envio
+        description: "Descripción del estado actual del envío"
+
+  - name: fact_recepciones
+    description: "Hechos de recepciones de mercancía"
+    columns:
+      - name: id_recepcion
+        description: "Identificador único de la recepción (PK)"
+
+      - name: fecha_prevista
+        description: "Fecha prevista de recepción"
+
+      - name: fecha_recepcion
+        description: "Fecha real de recepción"
+
+      - name: id_proveedor
+        description: "Proveedor (FK)"
+
+      - name: id_almacen
+        description: "Almacén receptor (FK)"
+
+      - name: estado_recepcion
+        description: "Descripción del estado de la recepción"

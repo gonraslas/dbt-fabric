@@ -18,7 +18,7 @@ select
     rcp.fecha_prevista,
     rcp.fecha_recepcion,
     rcp.id_proveedor,
-    rcp.id_almacen
+    rcp.id_almacen,
     estrec.descripcion as estado_recepcion
 from recepcion rcp
 inner join estado_recepcion estrec on rcp.id_estado_recepcion = estrec.id_estado_recepcion

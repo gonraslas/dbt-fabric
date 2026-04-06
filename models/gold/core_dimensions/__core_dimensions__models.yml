@@ -1,0 +1,42 @@
+version: 2
+
+models:
+
+  - name: dim_articulos
+    description: "Dimensión de artículos con información de mercado"
+    columns:
+      - name: id_articulo
+        description: "Identificador único del artículo (PK)"
+
+      - name: ref_articulo
+        description: "Identificador alfanumérico del artículo"
+
+      - name: descripcion
+        description: "Descripción del artículo"
+
+      - name: peso
+        description: "Peso por unidad"
+
+      - name: volumen
+        description: "Volumen por unidad"
+
+      - name: mercado
+        description: "Descripción del mercado asociado"
+
+  - name: dim_proveedor
+    description: "Dimensión de proveedores"
+    columns:
+      - name: id_proveedor
+        description: "Identificador único del proveedor (PK)"
+
+      - name: descripcion
+        description: "Nombre o descripción del proveedor"
+
+  - name: dim_transportista
+    description: "Dimensión de transportistas"
+    columns:
+      - name: id_transportista
+        description: "Identificador único del transportista (PK)"
+
+      - name: descripcion
+        description: "Nombre o descripción del transportista"

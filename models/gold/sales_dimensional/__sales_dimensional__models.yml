@@ -1,0 +1,45 @@
+version: 2
+
+models:
+
+  - name: dim_tienda
+    description: "Dimensión de tiendas con información geográfica"
+    columns:
+      - name: id_tienda
+        description: "Identificador único de la tienda (PK)"
+
+      - name: descripcion
+        description: "Nombre de la tienda"
+
+      - name: latitud
+        description: "Latitud de la ubicación de la tienda"
+
+      - name: longitud
+        description: "Longitud de la ubicación de la tienda"
+
+  - name: fact_sales
+    description: "Hechos de ventas en tiendas"
+    columns:
+      - name: id_tienda
+        description: "Tienda donde se realizó la venta (FK)"
+
+      - name: id_transportista
+        description: "Transportista que realizó el envío (FK)"
+
+      - name: fecha_venta
+        description: "Fecha de la venta"
+
+      - name: ref_contenedor
+        description: "Identificador alfanumérico del contenedor"
+
+      - name: id_articulo
+        description: "Artículo vendido (FK)"
+
+      - name: num_unidades
+        description: "Cantidad de unidades vendidas"
+
+      - name: precio_unidad
+        description: "Precio de costo unitario"
+
+      - name: precio_venta
+        description: "Precio de venta unitario en tienda"

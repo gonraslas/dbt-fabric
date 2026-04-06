@@ -23,7 +23,7 @@ tipo_ubicacion as (
     select
         ubc.id_ubicacion,
         ubc.ref_ubicacion,
-        alm.descripcion as nombre_almacen,
+        alm.nombre_almacen,
         alm.longitud,
         alm.latitud,
         tubc.tipo_ubicacion as tipo_ubicacion
